@@ -8,21 +8,24 @@ while alf != 1 and alf != 2:
 if alf == 1:
 	alf, m = en_alf, 26
 	word = input('Write a word: ')
-	k = int(input('What size? : '))
 elif alf == 2:
 	alf, m = ru_alf, 32
 	word = input('Введите слово: ')
-	k = int(input('На сколько будем сдвигать? (для дешифровки используйте "-"): '))
 
-def shifr(word, alf):
-	for i in word:		
-		if i not in alf:
-			print(i, end = '')
-		if i in alf:
-			if i == i.upper():
-				print(alf[((alf.index(i) + k) % m) + m], end = '')
-			else:
-				print(alf[(alf.index(i) + k) % m], end = '')
 	
+def shifr(word, alf):
+	for q in word.split():
+		k = 0
+		for p in q:
+			if p.isalpha():
+				k += 1
+		for i in q:
+			if i not in alf:
+			 	print(i, end = '')
+			if i in alf:
+				if i == i.upper():
+					print(alf[((alf.index(i) + k) % m) + m], end = '')
+				else:
+					print(alf[(alf.index(i) + k) % m], end = '')
+		print(' ', end = '')	
 shifr(word, alf)
-
