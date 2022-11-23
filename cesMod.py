@@ -12,13 +12,9 @@ elif alf == 2:
 	alf, m = ru_alf, 32
 	word = input('Введите слово: ')
 
-	
 def shifr(word, alf):
 	for q in word.split():
-		k = 0
-		for p in q:
-			if p.isalpha():
-				k += 1
+		k = len([i for i in q if i.isalpha()])
 		for i in q:
 			if i not in alf:
 			 	print(i, end = '')
@@ -26,6 +22,6 @@ def shifr(word, alf):
 				if i == i.upper():
 					print(alf[((alf.index(i) + k) % m) + m], end = '')
 				else:
-					print(alf[(alf.index(i) + k) % m], end = '')
-		print(' ', end = '')	
+					print(alf[(alf.index(i) + k) % m], end = '')	
+		print(' ', end = '')
 shifr(word, alf)
